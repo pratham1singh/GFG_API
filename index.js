@@ -4,9 +4,9 @@ const getUserData = require('./Scrap');
 const app = express();
 
 
-app.get('/',(req,res)=>{
-  res.send('Hii!, I am Pratham welcome to my API. Thank for using it.');
-})
+// app.get('/',(req,res)=>{
+//   res.send('Hii!, I am Pratham welcome to my API. Thank for using it.');
+// })
 
 app.get('/:userName', async (req, res) => {
   try {
