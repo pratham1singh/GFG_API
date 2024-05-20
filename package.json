@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "postinstall": "npx puppeteer install"
+    "postinstall": "npx puppeteer browsers install chrome"
   },
   "author": "pratham",
   "license": "ISC",
