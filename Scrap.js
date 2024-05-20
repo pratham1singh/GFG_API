@@ -5,13 +5,21 @@ async function getUserData(userName) {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   await page.goto(`https://www.geeksforgeeks.org/user/${userName}/`);
-
+ 
   // Wait for the required elements to load
-  await page.waitForSelector(
-    ".profilePicSection_head_userRankContainer_rank__abngM"
-  );
+  const selector = ".profilePicSection_head_userRankContainer_rank__abngM";
+  try {
+    await page.waitForSelector(selector, { timeout: 5000 }); // Adjust timeout as needed
+  } catch (error) {
+    // console.error(`User ${userName} not found`);
+    await browser.close();
+    return {
+      "Status":`User ${userName} not found`,
+      "Pratham ":"You have entered wrong username , try again. Thank you!"
+    }; 
+  }
 
-  // Extract user data
+ 
   const userData = await page.evaluate(() => {
     const copyright =
       "Pratham Singh https://www.linkedin.com/in/pratham-singh-800a0822a/";
