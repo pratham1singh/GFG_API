@@ -5,15 +5,15 @@ const app = express();
 
 
 app.get('/',(req,res)=>{
-  res.send('Hii!, I am Pratham welcome to my API.');
+  res.send('Hii!, I am Pratham welcome to my API. Thank for using it.');
 })
 
 app.get('/:userName', async (req, res) => {
   try {
     const userName=req.params.userName;
     const data = await getUserData(userName);
-    if(!data)
-        res.send("You have not entered correct user name. User name does exists.");
+    // if(!data)
+    //     res.send("You have not entered correct user name. User name does exists.");
     // console.log(data)
     res.send(data);
   } catch (error) {
