@@ -3,6 +3,9 @@ const getUserData = require('./Scrap');
 
 const app = express();
 
+app.get("/",(req,res)=>{
+  res.send("Welcome to GFG_API,made by Pratham singh")
+})
 
 app.get('/:userName', async (req, res) => {
   try {
