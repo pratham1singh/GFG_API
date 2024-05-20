@@ -8,8 +8,11 @@ app.get('/:userName', async (req, res) => {
   try {
     const userName=req.params.userName;
     const data = await getUserData(userName);
+    if(!data)
+        res.send("User name not found !")
     // console.log(data)
-    res.send(data);
+    else
+      res.send(data);
   } catch (error) {
     console.error('Error fetching user data:', error);
     res.status(500).send('Internal Server Error');
